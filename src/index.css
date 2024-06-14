@@ -1,0 +1,27 @@
+:root {
+  --border-color: rgba(175, 184, 193, 0.2);
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+.p-10 {
+  padding: 10px;
+}
+.d-flex {
+  display: flex;
+}
+
+.items-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px 0 10px;
+}
