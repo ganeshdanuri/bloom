@@ -55,10 +55,10 @@
 
   .select-theme {
     position: absolute;
-    width: 200px;
+    width: 180px;
     border: 1px solid var(--border-color);
     z-index: 1;
-    height: 300px;
+    max-height: 300px;
     overflow-y: scroll;
     list-style-type: none;
     display: flex;
