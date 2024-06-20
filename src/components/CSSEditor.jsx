@@ -5,14 +5,16 @@ import EditorTitle from "./EditorTitle";
 import { getHeight } from "../utils/app-utils";
 
 function CSSEditor(props) {
-  const { cssCode, setCssCode, theme, onHideChange, hideEditor } = props;
+  const { cssCode, setCssCode, theme, onHideChange, hideEditor, mode } = props;
+
+  if (mode !== "web") return null;
 
   const onChange = React.useCallback((val, viewUpdate) => {
     setCssCode(val);
   }, []);
 
   const hide = hideEditor.css;
-  const height = getHeight(hide, hideEditor);
+  const height = getHeight(hide, hideEditor, mode);
 
   return (
     <div className="editor-container" style={{ height }}>

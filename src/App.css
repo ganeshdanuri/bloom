@@ -6,7 +6,7 @@
   flex-direction: column;
 
   .cm-theme {
-    height: 92% !important;
+    height: 90% !important;
   }
 }
 
@@ -43,7 +43,7 @@
     cursor: pointer;
     width: 200px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: center;
     padding: 0 10px 0 10px;
     text-transform: capitalize;
@@ -114,7 +114,6 @@
     transition-duration: 0.2s;
 
     .editor-title {
-      font-weight: 500;
       display: flex;
       justify-content: space-between;
       align-items: center;

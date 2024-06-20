@@ -1,23 +1,29 @@
-import React, { useState } from "react";
-import { initalLabel, themeList, themes } from "../constants/app-constants";
+import {
+  initalModeLabel,
+  initalThemeLabel,
+  modeList,
+  themeList,
+  themes,
+} from "../constants/app-constants";
 import { enterFullscreen, exitFullscreen } from "../utils/app-utils";
 import { Tooltip } from "react-tooltip";
+import DropDown from "./DropDown";
 
-const Navbar = ({ contentRef, setTheme, triggerExport }) => {
-  const [showThemes, setShowThemes] = useState(false);
-  const [label, setLabel] = useState(initalLabel);
-
-  const handleListClick = (e) => {
-    setTheme(themes[e.target.id]);
-    setLabel(e.target.innerText);
-  };
-
+const Navbar = ({ contentRef, setTheme, triggerExport, setMode }) => {
   const handleFullscreen = () => {
     if (!document.fullscreenElement) {
       enterFullscreen(contentRef);
     } else {
       exitFullscreen();
     }
+  };
+
+  const onThemeChange = (value) => {
+    setTheme(themes[value]);
+  };
+
+  const onModeChange = (value) => {
+    setMode(value);
   };
 
   return (
@@ -27,6 +33,18 @@ const Navbar = ({ contentRef, setTheme, triggerExport }) => {
         <h1 className="logo-title">Bloom</h1>
       </div>
       <div className="d-flex">
+        <DropDown
+          options={modeList}
+          onChange={onModeChange}
+          icon={<img src="./web.svg" />}
+          initialLabel={initalModeLabel}
+        />
+        <DropDown
+          options={themeList}
+          onChange={onThemeChange}
+          icon={<img src="./theme.svg" />}
+          initialLabel={initalThemeLabel}
+        />
         <div className="actions-container h-100 items-center p-10">
           <Tooltip id="export-zip" />
           <img
@@ -44,33 +62,6 @@ const Navbar = ({ contentRef, setTheme, triggerExport }) => {
             data-tooltip-id="full-screen"
             data-tooltip-content="Full Screen"
           />
-        </div>
-        <div className="h-100" onMouseLeave={() => setShowThemes(false)}>
-          <div className="theme" onClick={() => setShowThemes((prev) => !prev)}>
-            <span>{label}</span>
-            <div className="items-center">
-              <img
-                src={showThemes ? "./upArrow.svg" : "./downArrow.svg"}
-                className="down-arrow"
-              />
-              <img src="./theme.svg" />
-            </div>
-          </div>
-          {showThemes && (
-            <ul className="select-theme" onClick={handleListClick}>
-              {themeList.map((eachTheme) => {
-                return (
-                  <li
-                    id={eachTheme.value}
-                    key={eachTheme.value}
-                    className="each-theme"
-                  >
-                    {eachTheme.label}
-                  </li>
-                );
-              })}
-            </ul>
-          )}
         </div>
       </div>
     </nav>

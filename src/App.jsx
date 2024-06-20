@@ -19,6 +19,8 @@ import "react-tooltip/dist/react-tooltip.css";
 const App = () => {
   const contentRef = useRef();
 
+  const [mode, setMode] = useState("web");
+
   const [htmlCode, setHmtlCode] = useState(htmlInitialValue);
   const [cssCode, setCssCode] = useState(cssInitialValue);
   const [jsCode, setJsCode] = useState(jsInitialValue);
@@ -48,6 +50,7 @@ const App = () => {
         setTheme={setTheme}
         contentRef={contentRef}
         triggerExport={triggerExport}
+        setMode={setMode}
       />
       <article ref={contentRef} className="content-container">
         <section className="ediors-container">
@@ -57,6 +60,7 @@ const App = () => {
             theme={theme}
             hideEditor={hideEditor}
             onHideChange={onHideChange}
+            mode={mode}
           />
           <CSSEditor
             cssCode={cssCode}
@@ -64,6 +68,7 @@ const App = () => {
             theme={theme}
             hideEditor={hideEditor}
             onHideChange={onHideChange}
+            mode={mode}
           />
           <JavascriptEditor
             jsCode={jsCode}
@@ -71,6 +76,7 @@ const App = () => {
             theme={theme}
             hideEditor={hideEditor}
             onHideChange={onHideChange}
+            mode={mode}
           />
         </section>
         <section className="output-container">

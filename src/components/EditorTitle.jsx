@@ -1,14 +1,13 @@
-import React from "react";
-import { getLabel } from "../utils/app-utils";
-
 const EditorTitle = ({ type, onHideChange, hide }) => {
   const handleClick = () => {
     onHideChange(type);
   };
-
   return (
     <div className="editor-title">
-      <span>{getLabel(type)}</span>
+      <img
+        src={`./${type}.svg`}
+        style={{ marginLeft: type === "html" && "5px" }}
+      />
       {hide ? (
         <img src="./plus.svg" onClick={handleClick} className="hide-add" />
       ) : (

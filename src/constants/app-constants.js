@@ -38,7 +38,8 @@ export const themes = {
 
 export const initialTheme = themes.atomone; // defined above
 
-export const initalLabel = "Atomone";
+export const initalThemeLabel = "Atomone";
+export const initalModeLabel = "Web";
 
 export const htmlInitialValue = `<h1> Hello World ! </h1>`;
 
@@ -112,5 +113,16 @@ export const themeList = [
   {
     value: "sublime",
     label: "Sublime",
+  },
+];
+
+export const modeList = [
+  {
+    value: "web",
+    label: "Web",
+  },
+  {
+    value: "javascript",
+    label: "Javascript",
   },
 ];

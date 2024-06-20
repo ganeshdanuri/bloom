@@ -44,19 +44,18 @@ export const getCount = (updated) => {
   return Object.values(updated).filter((key) => key === true).length;
 };
 
-export const getLabel = (type) => {
-  return type === "html" ? "HTML" : type === "css" ? "CSS" : "Javascript";
-};
-
-export const getHeight = (hide, hideEditor) => {
+export const getHeight = (hide, hideEditor, mode) => {
   const { count } = hideEditor;
-  const height = hide
-    ? "4%"
-    : count === 2
-    ? "99%"
-    : count === 1
-    ? "48%"
-    : "33%";
+  const height =
+    mode === "web"
+      ? hide
+        ? "4%"
+        : count === 2
+        ? "99%"
+        : count === 1
+        ? "48%"
+        : "33%"
+      : "99%";
 
   return height;
 };
