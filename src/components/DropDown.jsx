@@ -14,12 +14,10 @@ const DropDown = ({ onChange, icon, options, initialLabel }) => {
       <div className="theme" onClick={() => setShowDropDown((prev) => !prev)}>
         {icon}
         <span>{label}</span>
-        <div className="items-center">
-          <img
-            src={showDropDown ? "./upArrow.svg" : "./downArrow.svg"}
-            className="down-arrow"
-          />
-        </div>
+        <img
+          src={showDropDown ? "./upArrow.svg" : "./downArrow.svg"}
+          className="down-arrow"
+        />
       </div>
       {showDropDown && (
         <ul className="select-theme" onClick={handleListClick}>
